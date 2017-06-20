@@ -25,7 +25,7 @@ namespace ShoppingCartTest
 
             //Assert
             //結帳價格為 100 元
-            Assert.Equals(actual, 100);
+            Assert.AreEqual(actual, 100);
         }
     }
 }

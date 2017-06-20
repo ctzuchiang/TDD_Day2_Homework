@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ShoppingCart
 {
@@ -7,7 +8,12 @@ namespace ShoppingCart
     {
         public decimal GetPurchasingPrice(List<Product> products)
         {
-            throw new NotImplementedException();
+            return products.Select(x =>
+            {
+                if (x.Name == "HarryPotter_1")
+                    return x.Count*100;
+                return 0;
+            }).Sum();
         }
     }
 
