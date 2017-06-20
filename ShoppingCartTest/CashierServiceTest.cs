@@ -12,20 +12,20 @@ namespace ShoppingCartTest
         {
             //Arrange
             //當我到了收銀台
+            var products = new List<Product>()
+            {
+                new Product(){Name = "HarryPotter",Episode = 1,Count = 1}
+            };
+
             var target = new CashierService();
 
             //Act
             //給收銀台 哈利波特 第 1 集 1 本
-            var products = new List<Product>()
-            {
-                new Product(){Name = "HarryPotter_1",Count = 1}
-            };
-
             var actual = target.GetPurchasingPrice(products);
 
             //Assert
             //結帳價格為 100 元
-            Assert.AreEqual(actual, 100);
+            Assert.AreEqual(100, actual);
         }
 
         [TestMethod]
@@ -33,21 +33,22 @@ namespace ShoppingCartTest
         {
             //Arrange
             //當我到了收銀台
+            var products = new List<Product>()
+            {
+                new Product(){Name = "HarryPotter",Episode = 1,Count = 1},
+                new Product(){Name = "HarryPotter",Episode = 2,Count = 1},
+            };
+
             var target = new CashierService();
 
             //Act
             //給收銀台 哈利波特 第 1 集 1 本, 第 2 集 1 本
-            var products = new List<Product>()
-            {
-                new Product(){Name = "HarryPotter_1",Count = 1},
-                new Product(){Name = "HarryPotter_2",Count = 1}
-            };
 
             var actual = target.GetPurchasingPrice(products);
 
             //Assert
-            //結帳價格為 100 元
-            Assert.AreEqual(actual, 190);
+            //結帳價格為 190 元
+            Assert.AreEqual(190, actual);
         }
     }
 }
