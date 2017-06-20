@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace ShoppingCart
 {
-    public static class CashierService
+    public class CashierService
     {
-        public static int GetPurchasingPrice<TSource>(this IEnumerable<TSource> source, IEnumerable<TSource> product)
+        public decimal GetPurchasingPrice(List<Product> products)
         {
             throw new NotImplementedException();
         }
@@ -14,5 +14,6 @@ namespace ShoppingCart
     public class Product
     {
         public string Name { get; set; }
+        public int Count { get; set; }
     }
 }
