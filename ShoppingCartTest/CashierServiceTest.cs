@@ -133,5 +133,25 @@ namespace ShoppingCartTest
             //Assert
             Assert.AreEqual(370, actual);
         }
+
+        [TestMethod]
+        public void Purchase_HarryPotter_episode1_1_and_episode2_2_and_episode3_2_price_is_460()
+        {
+            //Arrange
+            var products = new List<Product>()
+            {
+                new Product(){Name = "HarryPotter",Episode = 1,Count = 1},
+                new Product(){Name = "HarryPotter",Episode = 2,Count = 2},
+                new Product(){Name = "HarryPotter",Episode = 3,Count = 2},
+            };
+
+            var target = new CashierService();
+
+            //Act
+            var actual = target.GetPurchasingPrice(products);
+
+            //Assert
+            Assert.AreEqual(460, actual);
+        }
     }
 }
