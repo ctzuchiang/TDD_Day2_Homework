@@ -91,5 +91,27 @@ namespace ShoppingCartTest
             //Assert
             Assert.AreEqual(320, actual);
         }
+
+        [TestMethod]
+        public void Purchase_HarryPotter_episode_from_1_to_5_price_is_375_after_25_percent_discount()
+        {
+            //Arrange
+            var products = new List<Product>()
+            {
+                new Product(){Name = "HarryPotter",Episode = 1,Count = 1},
+                new Product(){Name = "HarryPotter",Episode = 2,Count = 1},
+                new Product(){Name = "HarryPotter",Episode = 3,Count = 1},
+                new Product(){Name = "HarryPotter",Episode = 4,Count = 1},
+                new Product(){Name = "HarryPotter",Episode = 5,Count = 1},
+            };
+
+            var target = new CashierService();
+
+            //Act
+            var actual = target.GetPurchasingPrice(products);
+
+            //Assert
+            Assert.AreEqual(375, actual);
+        }
     }
 }
